@@ -12,10 +12,12 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'fabrication'
 gem 'faker'
 gem 'faraday'
+gem 'jwt'
 gem 'pry'
 gem 'pry-rails'
 gem 'rack-cors'
 gem 'redis', '~> 4.0'
+gem 'simple_command'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

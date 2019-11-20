@@ -16,6 +16,7 @@ module AddressApi
   class Application < Rails::Application
     config.load_defaults 5.2
     config.active_record.schema_format = :sql
+    config.autoload_paths << Rails.root.join('lib')
     config.api_only = true
   end
 end

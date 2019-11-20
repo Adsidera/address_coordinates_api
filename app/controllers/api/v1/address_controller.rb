@@ -5,7 +5,7 @@ class Api::V1::AddressController < ApplicationController
     if @coordinates
       render json: @coordinates
     else
-      render json: { "error": "Address missing in request" }
+      render json: { error: "Address missing in request" }
     end
   end
 
@@ -14,7 +14,7 @@ class Api::V1::AddressController < ApplicationController
   def set_address_request
     if params[:address].present?
       response = GeocodeFetcher.new(params[:address]).response
-      @coordinates = JSON.parse(response.body).first.slice("lat", "lon")
+      @coordinates = JSON.parse(response.body).first.slice("lat", "lon", "display_name")
     end
   end
 end
