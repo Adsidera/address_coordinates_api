@@ -8,6 +8,7 @@ gem 'pg'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'colorize'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'fabrication'
 gem 'faker'
