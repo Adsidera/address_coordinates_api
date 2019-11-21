@@ -7,8 +7,6 @@ If you want to run it locally, please clone the repo, `bundle install` it, run `
 
 ## Design choices
 
-The main criteria I followed in choosing gems to handle specific functionalities was this: would I choose them in a production environment?
-
 - HTTP calls - I have chosen to use the gem `Faraday`for handling the HTTP calls, instead of `Net::HTTP`, for more flexibility, imagining that in a hypothetic production environment it could be easily modified to accept other adapters (like Typhoeus, for instance)
 - Service Patterns - I wrapped the external API call into a service object, the `GeocodeFetcher` which takes only a `query` argument and returns the response from the LocationIQ on its initialization. When it comes to using external services, I normally wrap them into a service, to keep it separate from the internal responsibilities of the original MVP architecture. That is - I would not love to have an external service directly called from a controller, as it would clutter it in the long run, it would break the Single Responsibility Principle and, last but not least, it would potentially expose sensitive data.
 - Not publicly accessible - I chose to use a JWT authentication system, so only logged in users can be authorized to use the api. For that I created the `login` endpoint. The JWT authentication process is using the gem `jwt`, of course, and the gem `simple_command`. With the latter, we are decoupling the actions of authenticating the user via `jwt` as `command` objects, which are then easily usable in the `session_controller`, without cluttering it with calls to external services/libraries.
