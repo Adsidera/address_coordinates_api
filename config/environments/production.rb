@@ -48,7 +48,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_store, { url: redis://h:p3e3fa799a2333ea2c46043be325337c1c9e477f77004d3b498debf3b50254d10@ec2-18-200-93-254.eu-west-1.compute.amazonaws.com:22799 }
+  config.cache_store = :redis_store, { url: "redis://h:p3e3fa799a2333ea2c46043be325337c1c9e477f77004d3b498debf3b50254d10@ec2-18-200-93-254.eu-west-1.compute.amazonaws.com:22799" }
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
