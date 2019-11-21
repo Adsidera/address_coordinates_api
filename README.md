@@ -1,15 +1,12 @@
 # Address API
 
 
-This is a simple web API that obtains a longitude and a latitude out of an address param, but only if you are logged and with a valid JWT token.
+This is a simple API that obtains a longitude and a latitude out of an address param by querying the LocationIQ API, but only if you are logged and with a valid JWT token.
 After having logged in via `/login`, you can send requests to the API via Postman, through the endpoint `https://geocodefun.herokuapp.com/api/v1`.
 If you want to run it locally, please clone the repo, `bundle install` it, run `rails db:migrate` and `rails db:seed` in order.
 
 ## Design choices
 
-This app uses the LocationIQ API to query and retrieve the latitude and longitude of a given address.
-
-### Gems used and criteria
 The main criteria I followed in choosing gems to handle specific functionalities was this: would I choose them in a production environment?
 
 - HTTP calls - I have chosen to use the gem `Faraday`for handling the HTTP calls, instead of `Net::HTTP`, for more flexibility, imagining that in a hypothetic production environment it could be easily modified to accept other adapters (like Typhoeus, for instance)
